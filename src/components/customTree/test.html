@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>柱状图</title>
+</head>
+
+<body>
+  <!-- 创建图容器 -->
+  <div>
+    <canvas id="customTree" width="800" height="600"></canvas>
+  </div>
+  <script>
+    var canvas = document.getElementById("customTree");
+    var ctx = canvas.getContext('2d');
+    var node = { desc: '第一级', count: 10, percent: 55.55 }
+    drawNode(ctx, node, 375, 100);
+    drawLine(ctx,375,100,175,250);
+    drawNode(ctx, node, 175, 250);
+    drawLine(ctx,375,100,575,250);
+    drawNode(ctx, node, 575, 250);
+
+    function drawNode(ctx, node, x, y, width, height) {
+      width = 250;
+      height = 100;
+
+      //绘制节点容器，一个矩形框
+      ctx.strokeStyle = '#e0e0e0';
+      ctx.strokeRect(x - width / 2, y - height / 2, width, height);
+
+      //绘制第一行显示文本
+      ctx.font = "14px Arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#ce9797";
+      var textX = x - width * 0.2;
+      var textY = y - 14;
+      ctx.fillText(node.desc, textX, textY);
+
+      //绘制第二行显示文本
+      ctx.font = "14px Arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#ce9797";
+      var textX = x - width * 0.2;
+      var textY = y + 14;
+      ctx.fillText(node.count, textX, textY);
+
+      drawRingPie(ctx, [0.5555, 0.4445], x + width * 0.3, y, width * 0.2 - 10)
+    }
+
+
+    /**
+     * 画环形饼图
+     */
+    function drawRingPie(ctx, data, x, y, radius) {
+      //画外层圆环
+      var color = ['#bd94ff', '#48eaa7'];
+      var startRadian = 0, endRadian = 0;
+      for (var i = 0; i < data.length; i++) {
+        ctx.beginPath();
+        //起始点移动到圆心
+        ctx.moveTo(x, y);
+        endRadian += data[i] * Math.PI * 2;
+        //以圆心为起点，0度开始绘制一个圆
+        ctx.arc(x, y, radius, startRadian, endRadian, false);
+        ctx.closePath();
+        // 填充颜色  
+        ctx.fillStyle = color[i];
+        ctx.fill();
+        startRadian = endRadian;
+      }
+
+      /**
+       * 画内层圆
+      */
+      ctx.beginPath();
+      //起始点移动到圆心
+      ctx.moveTo(x, y);
+      //以圆心为起点，0度开始绘制一个圆
+      ctx.arc(x, y, radius - 20, 0, Math.PI * 2, false);
+      ctx.closePath();
+      // 填充颜色  
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = "#ffffff";
+      ctx.stroke();
+      ctx.fill();
+
+      /**
+       * 环心填充文字
+      */
+      ctx.font = "14px Arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#000";
+      ctx.fillText(node.percent + "%", x, y);
+    }
+
+    //画连接线
+    function drawLine(ctx,x0, y0, x1, y1, width, height) {
+      vidth = 250, height = 100;
+      ctx.strokeStyle = "#e0e0e0";
+      ctx.beginPath();
+      ctx.moveTo(x0, y0 + height / 2);
+      if (x1 != x0) {//折线
+        ctx.lineTo(x0, y0+(y1 - y0) / 2);
+        ctx.stroke();
+
+        ctx.moveTo(x0, y0+(y1 - y0) / 2);
+        ctx.lineTo(x1, y0+(y1 - y0) / 2);
+        ctx.stroke();
+
+        ctx.moveTo(x1, y0+(y1 - y0) / 2);
+        ctx.lineTo(x1, y1 - height / 2);
+        ctx.stroke();
+      } else {//直线
+        ctx.lineTo(x1, y1 - height / 2);
+        ctx.stroke();
+      }
+    }
+  </script>
+</body>
+
+</html>
