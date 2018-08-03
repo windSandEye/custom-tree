@@ -222,7 +222,7 @@ class PayAbilityLoginTree extends Component {
             textAlign: 'left'
         }
         return (
-            <div>
+            <div style={{ padding: 15 }}>
                 <canvas id={this.props.treeId} width={this.props.width} height={this.props.height} style={{ zoom: this.state.ratio }}></canvas>
                 <div style={tipClass} id={`${this.props.treeId}Tip`}>
                     <div>{this.state.tipNode ? this.state.tipNode.desc : null}</div>

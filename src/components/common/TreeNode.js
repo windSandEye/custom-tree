@@ -1,11 +1,17 @@
 /**
 * 绘制一个节点
 * ctx:上下文
-* node：节点数据{desc: string,count:number,percent:number}
+* node：节点数据{desc: string,count:number,percent:number,pieData:[]}
 * x:节点中心横坐标
 * y:节点中心纵坐标
 * width：节点容器宽度
 * height：节点容器高度
+* radius:外环半径
+* innerRadius:内环半径
+* scale:缩放比例
+* mousePoint：鼠标对象
+* isRingRange:鼠标是否在圆环上
+* treePage：当前页面对象
 */
 export const drawNode = (ctx, node, x, y, width = 300, height = 150,
     radius, innerRadius, pieColor, scale, mousePoint, isRingRange, treePage) => {
@@ -43,11 +49,16 @@ export const drawNode = (ctx, node, x, y, width = 300, height = 150,
 /**
  * 画环形饼图
  * ctx:上下文
- * data：饼图数据[float,float,...]
+ * node：节点信息
  * x:饼图圆心横坐标
- * y:饼图圆心饼图圆心纵坐标
+ * y:饼图圆心纵坐标
  * radius:外层圆半径
  * innerRadius:内层圆半径
+ * color:饼图颜色数组
+ * scale:缩放比例
+ * mousePoint：鼠标对象
+ * isRingRange:鼠标是否在圆环上
+ * treePage：当前页面对象
  */
 export const drawRingPie = (ctx, node, x, y, radius, innerRadius, color, scale = 1, mousePoint = null, isRingRange, treePage) => {
     //画外层圆环
@@ -68,7 +79,7 @@ export const drawRingPie = (ctx, node, x, y, radius, innerRadius, color, scale =
         ctx.fill();
         startRadian = endRadian;
         if (mousePoint && ctx.isPointInPath(mousePoint.x, mousePoint.y) && isRingRange) {//鼠标点击了并且在该部分圆环上
-            ctx.clearRect(-radius + 1, -radius + 1, 2 * radius - 1, 2 * radius - 1);
+            ctx.clearRect(-radius, -radius, 2 * radius, 2 * radius);
             drawDynamicPie(ctx, node, radius, color, i);//重绘圆
             let tipNode = {
                 desc: node.desc,
