@@ -22,12 +22,12 @@ class CustomTree extends Component {
         ],
 
         fit: false,
-        width: 1000,
-        height: 600,
-        nodeWidth: 200,
-        nodeHeight: 80,
-        radius: 30,          //nodeWidth*0.2-10
-        innerRadius: 15      //nodeWidth*0.2-25
+        width: 1400,
+        height: 900,
+        nodeWidth: 300,
+        nodeHeight: 150,
+        radius: 65,          //nodeWidth*0.25-10
+        innerRadius: 40      //nodeWidth*0.25-25
     }
 
     //封装树
@@ -138,6 +138,7 @@ class CustomTree extends Component {
             for (let node of treeData) {
                 if (node.depth == depth) {
                     floorList.push(node);
+                    continue;
                 }
                 if (node.children) {
                     this.getNodeDepathNum(node.children, depth, floorList)
@@ -170,7 +171,7 @@ class CustomTree extends Component {
                 treeData[i].x = nodeXScale * (2 * (nodeIndex + 1) - 1); //每个节点间的距离2n-1
                 treeData[i].y = nodeYSacle * treeData[i].depth;
                 if (treeData[i].children) {
-                    this.setNodePoint(treeData[i].children, width, height, nodeYSacle, treeData[i] + 1);
+                    this.setNodePoint(treeData[i].children, width, height, nodeYSacle);
                 }
             }
         }
@@ -180,32 +181,46 @@ class CustomTree extends Component {
 
     componentDidMount() {
         const canvas = document.getElementById("customTree");
+        let scale = 1;
         if (this.props.fit) {
-            if (canvas.parentNode.offsetWidth < 850) {
-                canvas.width = 850;
-            } else {
+            if (canvas.parentNode.offsetWidth > 1400) {
                 canvas.width = canvas.parentNode.offsetWidth;
+            } else {
+                scale = canvas.parentNode.offsetWidth / 1400;
+                canvas.width = canvas.parentNode.offsetWidth;
+                canvas.height = canvas.height * scale;
             }
-
         }
         const ctx = canvas.getContext('2d');
         this.dealData(canvas)
         let treeData = this.state.treeData;
-        this.drawTree(ctx, treeData);
-
+        this.drawTree(ctx, treeData, null, scale);
     }
 
 
-    drawTree(ctx, treeData, parentNode) {
+    // getPixelRatio(context) {
+    //     let backingStore = context.backingStorePixelRatio
+    //         || context.webkitBackingStorePixelRatio
+    //         || context.mozBackingStorePixelRatio
+    //         || context.msBackingStorePixelRatio
+    //         || context.oBackingStorePixelRatio
+    //         || context.backingStorePixelRatio || 1;
+    //     return (window.devicePixelRatio || 1) / backingStore;
+    // }
+
+
+
+
+    drawTree(ctx, treeData, parentNode,scale) {
         let nodeLength = treeData.length;
         if (nodeLength > 0) {
             for (let node of treeData) {
-                this.drawNode(ctx, node, node.x, node.y);
+                this.drawNode(ctx, node, node.x, node.y, this.props.nodeWidth, this.props.nodeHeight,scale);
                 if (parentNode) {
-                    this.drawLine(ctx, parentNode.x, parentNode.y, node.x, node.y);
+                    this.drawLine(ctx, parentNode.x, parentNode.y, node.x, node.y, this.props.nodeHeight*scale);
                 }
                 if (node.children) {
-                    this.drawTree(ctx, node.children, node);
+                    this.drawTree(ctx, node.children, node,scale);
                 }
             }
         }
@@ -221,18 +236,21 @@ class CustomTree extends Component {
      * width：节点容器宽度
      * height：节点容器高度
      */
-    drawNode(ctx, node, x, y, width = this.props.nodeWidth, height = this.props.nodeHeight) {
+    drawNode(ctx, node, x, y, width = this.props.nodeWidth, height = this.props.nodeHeight,scale) {
         //绘制节点容器，一个矩形框
         ctx.strokeStyle = '#e0e0e0';
-        ctx.strokeRect(x - width / 2, y - height / 2, width, height);
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.scale(scale,scale);
+        ctx.strokeRect( - width / 2,  - height / 2, width, height);
 
         //绘制第一行显示文本
         ctx.font = "14px Arial";
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.fillStyle = "#ce9797";
-        let textX1 = x - width * 0.2;
-        let textY1 = y - 14;
+        let textX1 =  - width * 0.25;
+        let textY1 =  - 14;
         ctx.fillText(node.desc, textX1, textY1);
 
         //绘制第二行显示文本
@@ -240,11 +258,12 @@ class CustomTree extends Component {
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.fillStyle = "#ce9797";
-        let textX2 = x - width * 0.2;
-        let textY2 = y + 14;
+        let textX2 =  - width * 0.25;
+        let textY2 =  14;
         ctx.fillText(node.count, textX2, textY2);
 
-        this.drawRingPie(ctx, node, x + width * 0.3, y, this.props.radius, this.props.innerRadius)
+        this.drawRingPie(ctx, node,  width * 0.25, 0, this.props.radius, this.props.innerRadius)
+        ctx.restore();
     }
 
     /**
@@ -331,7 +350,7 @@ class CustomTree extends Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <canvas id="customTree" width={this.props.width} height={this.props.height}></canvas>
             </div>
         )

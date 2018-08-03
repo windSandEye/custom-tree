@@ -1,0 +1,329 @@
+.reportHeader {
+    display: flex;
+    padding-right: 30px;
+    padding-left: 15px;
+    margin: 10px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    background-color: white;
+}
+
+.reportHeader .headerTilte {
+    color: rgb(24, 144, 255);
+    margin: 0;
+    padding: 10px 0;
+}
+
+.stepItem {
+    padding-top: 15px;
+    display: flex;
+    position: relative;
+}
+
+.stepItem .stepLine {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    padding-top: 46px;
+    padding-bottom: 6px;
+    left: 20px;
+}
+
+.stepItem .stepLine::after {
+    content: '';
+    background: #1890FF;
+    height: 100%;
+    display: inline-block;
+    border-radius: 1px;
+    width: 100%;
+}
+
+.stepItem .stepNum {
+    color: #fff;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid #1296DB;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #1296DB;
+}
+
+.stepItem .finished {
+    font-size: 40px;
+    color: #1890FF;
+}
+
+.stepItem .process {
+    color: #1890FF;
+}
+
+.stepItem .wait {
+    color: #929292;
+}
+
+.stepItem .waitLine {
+    width: 2px;
+}
+
+.stepItem .waitLine::after {
+    background: #8BC7FF;
+}
+
+.stepItem .waitStepNum {
+    color: #929292;
+    border: 1px solid #929292;
+    background-color: #fff;
+}
+
+.stepItem .stepTitle {
+    padding: 5px 10px;
+}
+
+.stepItem .stepTitleDesc {
+    padding-bottom: 15px;
+}
+
+.stepItem .stepTitleDesc .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.stepItem .stepTitleDesc .desc {
+    padding: 10px 0;
+    color: #929292;
+}
+
+.stepItem .content {
+    width: 100%;
+    padding-left: 15px;
+}
+
+.stepItem .content .chartDesc {
+    padding: 0 0 10px 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.stepItem .content .card {
+    border: 1px solid #E9E9E9;
+    padding: 20px;
+    line-height: 1.8;
+}
+
+.stepItem .content .card .desc {
+    color: #929292;
+}
+
+.stepItem .content .card .number {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.stepItem .content .card .percent {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+}
+
+.stepItem .content .card .count {
+    color: #CA9292;
+    text-align: center;
+}
+
+.card .percent .percentTrend {
+    color: #9ADC79;
+    padding: 5px;
+}
+
+.splithr {
+    border: none;
+    border-top: 1px solid #E9E9E9;
+}
+
+.comparsionTable {
+    display: flex;
+    padding: 15px;
+    border: 1px solid #E8E8E8;
+    border-bottom: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comparsionTable .comparsionTableTilte {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.comparsionTable .comparsion {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.comparsionTable .comparsion .comparsionRadio {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d0b8b8;
+    border-radius: 14px;
+    margin-right: 5px;
+}
+
+.comparsionRadio .selected {
+    border-radius: 6px;
+    width: 6px;
+    height: 6px;
+    background: #4c4141;
+    margin: 3px;
+    display: none;
+}
+
+.chartTable {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+
+.chartTable .chartTableItem {
+    display: flex;
+    align-items: center;
+}
+
+.chartTableItem .cricle {
+    border: 3px solid #3BA1FF;
+    border-radius: 3px;
+    width: 3px;
+    height: 3px;
+}
+
+.chartTableItem .split {
+    color: #E9E9E9;
+}
+
+.chartTableItem .legend {
+    padding: 5px 10px;
+}
+
+.chartTableItem .percent {
+    color: #92B6D9;
+    padding: 5px 15px;
+}
+
+.lineName {
+    color: #929292;
+    padding: 5px;
+}
+
+.lineCount {
+    padding: 5px;
+}
+
+.descTilte {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.graphicDesc {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.graphicDesc .desc {
+    color: #929292;
+}
+
+.graphicDesc .percent {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.stepItem .content .listItem {
+    padding: 20px 20px 0 20px;
+    line-height: 1.8;
+}
+
+.listItem .itemDesc {
+    color: #929292;
+}
+
+.listItem .itemValue {
+    font-size: 24px;
+}
+
+.listItem .itemPercent {
+    display: flex;
+    padding-left: 120px;
+}
+
+.percentUp {
+    color: #9ADC79;
+    padding: 5px;
+}
+
+.percentDown {
+    color: #9ADC79;
+    padding: 8px 5px;
+}
+
+.condition {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.condition .leftPart {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.condition .rightPart {
+    display: flex;
+    align-items: center;
+}
+.condition .rightPart .pickerBtn{
+    border:none;
+    outline: none;
+}
+.condition .rightPart .pickerBtn:focus{
+    border:none;
+    outline: none;
+}
+.condition .rightPart .pickerBtn:active{
+    border:none;
+    outline: none;
+}
+.condition .rightPart .pickerBtn::after{
+    border:none;
+    outline: none;
+}
+
+.pd-5 {
+    padding: 5px;
+}
+
+.pd-lr-5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pd-r-5 {
+    padding-right: 5px;
+}
+
+.pd-b-5 {
+    padding-bottom: 5px;
+}
+.pd-r-15{
+    padding-right: 15px;
+}
+.mg-r-15{
+    margin-right: 15px;
+}
