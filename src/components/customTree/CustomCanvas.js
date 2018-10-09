@@ -6,7 +6,7 @@ const data = {
     desc: "自定义图形", //第一行描述文字
     count: 2321341,    //第二行描述文字
     percent: 60,	  //圆环中心显示数字
-    pieData: [{ desc: '圆环', name: "A", value: "0.6" }, { desc: '圆环',name: "B", value: "0.4" }],//环图数据
+    pieData: [{ desc: '圆环', name: "A", value: "0.6" }, { desc: '圆环', name: "B", value: "0.4" }],//环图数据
     x: 250,			//图形中心点在画布的x轴坐标
     y: 250			//图形中心点在画布Y轴坐标
 }
@@ -41,7 +41,7 @@ class CustomCanvas extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(!lodash.isEqual(nextProps.data,this.props.data)){
+        if (!lodash.isEqual(nextProps.data, this.props.data)) {
             this.redrawTree(nextProps.data);
         }
     }
@@ -70,6 +70,11 @@ class CustomCanvas extends Component {
                 this.setState({ tipNode: null });
             }
         }, false)
+
+        canvas.addEventListener('wheel', (e) => {
+            this.setState({ tipNode: null });
+        })
+
     }
 
     /**
@@ -213,7 +218,14 @@ class CustomCanvas extends Component {
         }
     }
 
-    //点击位置是否在圆环上（数据为列表）
+    /*点击位置是否在圆环上（数据为列表）
+    *mousePoint:鼠标对象位置记录
+    *node：详细数据
+    *nodeWidth:矩形的宽度
+    *innerRadius：外层圆半径
+    *radius：内层圆半径
+    *scale：缩放比例
+    */
     isRingPostion(mousePoint, node, nodeWidth, innerRadius, radius, scale) {
         if (!mousePoint) {
             return false;
@@ -299,7 +311,8 @@ class CustomCanvas extends Component {
         }
         return (
             <div style={{ padding: 100 }}>
-                <canvas id={this.props.canvasId} width={this.props.width} height={this.props.height} style={{zoom:this.state.ratio}}></canvas>
+                <canvas id={this.props.canvasId} width={this.props.width} height={this.props.height} 
+                style={{ zoom: this.state.ratio}}></canvas>
                 <div style={tipClass} id={`${this.props.treeId}Tip`}>
                     <div>{this.state.tipNode ? this.state.tipNode.desc : null}</div>
                     <div>{this.state.tipNode ? this.state.tipNode.name : null} : {this.state.tipNode ? this.state.tipNode.value : null}</div>

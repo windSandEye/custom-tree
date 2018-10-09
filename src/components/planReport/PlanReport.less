@@ -1,0 +1,416 @@
+.page {
+    background: #F6F7F9;
+    min-width: 1450px;
+    .splithr {
+        border: none;
+        border-top: 1px solid #d0d0d0;
+    }
+    .content {
+        padding: 15px;
+        .planContainer {
+            display: flex;
+            .plan {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .planItem {
+                    display: flex; 
+                    padding: 15px;
+                    .planMain {
+                        border: 2px solid #BDBDBD;
+                        border-right: none;
+                        width: 500px;
+                        height: 128px;
+                        box-sizing: border-box;
+                        padding: 15px;
+                        text-align: center;
+                        font-size: 20px;
+                        line-height: 1.8;
+                        color: #ffffff;
+                        background: #BDBDBD;
+                        .planMainDesc {
+                            font-size: 12px;
+                            color: #ffffff;
+                        }
+                        .planProgress {
+                            padding: 0 15px;
+                        }
+                    }
+                    .planTriangle {
+                        width: 0;
+                        height: 0;
+                        border-width: 64px;
+                        border-style: solid;
+                        border-color: transparent transparent transparent #BDBDBD;
+                        position: relative;
+                    }
+                    .planSmall {
+                        width: 64px;
+                        height: 128px;
+                        border-width: 2px;
+                        box-sizing: border-box;
+                        border-style: solid;
+                        border-color: #BDBDBD;
+                        border-right: none;
+                        border-left: none;
+                        position: relative;
+                        background: #BDBDBD;
+                        .planSmallLeft {
+                            width: 0;
+                            height: 0;
+                            border-width: 64px;
+                            border-style: solid;
+                            border-color: transparent transparent transparent #BDBDBD;
+                            position: relative;
+                            top: -2px;
+                            &:after {
+                                content: '';
+                                width: 0;
+                                height: 0;
+                                border-width: 56px;
+                                border-style: solid;
+                                border-color: transparent transparent transparent #F6F7F9;
+                                position: absolute;
+                                top: -56px;
+                                left: -64px;
+                            }
+                        }
+                    }
+                    .planSmallContent {
+                        border: 2px solid #BDBDBD;
+                        border-right: none;
+                        border-left: none;
+                        width: 200px;
+                        height: 128px;
+                        box-sizing: border-box;
+                        padding: 15px;
+                        text-align: center;
+                        font-size: 18px;
+                        line-height: 1.8;
+                        color: #ffffff;
+                        background: #BDBDBD;
+                        .planSmallDesc {
+                            font-size: 12px;
+                            color: #ffffff;
+                        }
+                        .planProgress {
+                            padding: 0 15px;
+                        }
+                    }
+                }
+            }
+            .planLine {
+                .targetItem {
+                    position: relative;
+                    .target1 {
+                        background: #BDBDBD;
+                        border-radius: 200px;
+                        width: 120px;
+                        height: 120px;
+                        color: #ffffff;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .timeRoad1 {
+                        margin-top: -80px;
+                        width: 15px;
+                        height: 200px;
+                        background: #BDBDBD;
+                        transform: rotate(-60deg);
+                        margin-left: 190px;
+                    }
+                    .timeDesc1 {
+                        font-size: 20px;
+                        position: absolute;
+                        transform: rotate(30deg);
+                        left: 170px;
+                        top: 100px;
+                    }
+                    .target2 {
+                        background: #BDBDBD;
+                        border-radius: 200px;
+                        width: 120px;
+                        height: 120px;
+                        color: #ffffff;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 275px;
+                        margin-top: -80px;
+                    }
+                    .timeRoad2 {
+                        margin-top: -80px;
+                        width: 15px;
+                        height: 200px;
+                        background: #BDBDBD;
+                        transform: rotate(60deg);
+                        margin-left: 190px;
+                    }
+                    .timeDesc2 {
+                        font-size: 20px;
+                        position: absolute;
+                        transform: rotate(-30deg);
+                        left: 150px;
+                        top: 100px;
+                    }
+                }
+            }
+        }
+        .timeLine {
+            .timeAxis {
+                margin: 300px 100px;
+                .timeHeader {
+                    height: 20px;
+                    background-color: #CCCCCC;
+                }
+                .timeFirst {
+                    height: 20px;
+                    background-color: #FF6830;
+                    position: relative;
+                }
+                .timeSecond {
+                    height: 20px;
+                    background-color: #91BEAF;
+                    position: relative;
+                    .large {
+                        .line {
+                            background-color: #91BEAF;
+                            top: 20px;
+                        }
+                        .cricle {
+                            background-color: #91BEAF;
+                            top: 100px;
+                        }
+                    }
+                    .small {
+                        .line {
+                            background-color: #91BEAF;
+                            top: 20px;
+                        }
+                        .cricle {
+                            background-color: #91BEAF;
+                            top: 70px;
+                        }
+                    }
+                    .planDesc {
+                        top: 0;
+                        transform: translateY(-100%);
+                        display: flex;
+                        flex-direction: column-reverse;
+                    }
+                }
+                .timeThree {
+                    height: 20px;
+                    background-color: #FFCC52;
+                    position: relative;
+                    .large {
+                        .line {
+                            background-color: #FFCC52;
+                        }
+                        .cricle {
+                            background-color: #FFCC52;
+                        }
+                        .roadTitle {
+                            width: 60%;
+                            border-radius: 5px;
+                            height: auto;
+                            padding: 15px;
+                            position: absolute;
+                            left: 50%;
+                            top: -80px;
+                            transform: translate(-50%, -100%);
+                            background-color: #FFCC52;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            font-size: 18px;
+                            color: #ffffff;
+                        }
+                    }
+                    .small {
+                        .line {
+                            background-color: #FFCC52;
+                        }
+                        .cricle {
+                            background-color: #FFCC52;
+                        }
+                    }
+                }
+                .timeFour {
+                    height: 20px;
+                    background-color: #11495A;
+                    position: relative;
+                    .large {
+                        .line {
+                            background-color: #11495A;
+                            top: 20px;
+                        }
+                        .cricle {
+                            background-color: #11495A;
+                            top: 100px;
+                        }
+                    }
+                    .small {
+                        .line {
+                            background-color: #11495A;
+                            top: 20px;
+                        }
+                        .cricle {
+                            background-color: #11495A;
+                            top: 70px;
+                        }
+                    }
+                    .pole1 {
+                        width: 16px;
+                        height: 200px;
+                        position: absolute;
+                        left: 40%;
+                        top: -200px;
+                        margin-left: -8px;
+                        background-color: #11495A;
+                    }
+                    .pole2 {
+                        width: 16px;
+                        height: 200px;
+                        position: absolute;
+                        left: 60%;
+                        top: -200px;
+                        margin-left: -8px;
+                        background-color: #11495A;
+                    }
+                    .guidepost {
+                        width: 60%;
+                        text-align: center;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: #ffffff;
+                        top: -195px;
+                        .guideItem {
+                            padding: 5px;
+                            background: #11495A;
+                            border-radius: 5px;
+                            margin: 8px;
+                        }
+                    }
+                }
+                .large {
+                    .point {
+                        border: 5px solid #ffffff;
+                        border-radius: 5px;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin-top: -5px;
+                        margin-left: -5px;
+                    }
+                    .line {
+                        width: 10px;
+                        height: 80px;
+                        position: absolute;
+                        left: 50%;
+                        top: -75px;
+                        margin-top: -5px;
+                        margin-left: -5px;
+                        background-color: #FF6830;
+                    }
+                    .cricle {
+                        width: 100px;
+                        height: 100px;
+                        position: absolute;
+                        left: 50%;
+                        top: -175px;
+                        margin-top: -5px;
+                        margin-left: -50px;
+                        background-color: #FF6830;
+                        border-radius: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 18px;
+                        color: #ffffff;
+                    }
+                }
+                .small {
+                    .point {
+                        border: 3px solid #ffffff;
+                        border-radius: 3px;
+                        margin-top: -3px;
+                        margin-left: -3px;
+                        left: 25%;
+                        top: 50%;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                    }
+                    .line {
+                        width: 6px;
+                        height: 50px;
+                        position: absolute;
+                        left: 25%;
+                        top: -45px;
+                        margin-top: -3px;
+                        margin-left: -3px;
+                        background-color: #FF6830;
+                    }
+                    .cricle {
+                        width: 70px;
+                        height: 70px;
+                        position: absolute;
+                        left: 25%;
+                        top: -110px;
+                        margin-top: -5px;
+                        margin-left: -35px;
+                        background-color: #FF6830;
+                        border-radius: 70px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 16px;
+                        color: #ffffff;
+                    }
+                }
+                .two {
+                    .point {
+                        left: 75%;
+                    }
+                    .line {
+                        left: 75%;
+                    }
+                    .cricle {
+                        left: 75%;
+                    }
+                }
+                .planDesc {
+                    position: absolute;
+                    top: 20px;
+                    padding: 15px;
+                    width: 100%;
+                    color: #d4b7b7;
+                    display: flex;
+                    flex-direction: column;
+                    .timeDesc {
+                        font-size: 24px;
+                        text-align: center;
+                        padding-bottom: 10px;
+                        color: #3a3232;
+                    }
+                    .descItem {
+                        display: flex;
+                        .descTitle {
+                            flex: 0 0 20%;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

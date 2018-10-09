@@ -1,0 +1,161 @@
+.page {
+  background: #F6F7F9;
+  min-width: 1450px;
+}
+.page .splithr {
+  border: none;
+  border-top: 1px solid #d0d0d0;
+}
+.page .content {
+  padding: 15px;
+}
+.page .content .planContainer {
+  display: flex;
+}
+.page .content .planContainer .plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page .content .planContainer .plan .planItem {
+  display: flex;
+  padding: 15px;
+}
+.page .content .planContainer .plan .planItem .planMain {
+  border: 2px solid #BDBDBD;
+  border-right: none;
+  width: 500px;
+  height: 128px;
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #ffffff;
+  background: #BDBDBD;
+}
+.page .content .planContainer .plan .planItem .planMain .planMainDesc {
+  font-size: 12px;
+  color: #ffffff;
+}
+.page .content .planContainer .plan .planItem .planMain .planProgress {
+  padding: 0 15px;
+}
+.page .content .planContainer .plan .planItem .planTriangle {
+  width: 0;
+  height: 0;
+  border-width: 64px;
+  border-style: solid;
+  border-color: transparent transparent transparent #BDBDBD;
+  position: relative;
+}
+.page .content .planContainer .plan .planItem .planSmall {
+  width: 64px;
+  height: 128px;
+  border-width: 2px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #BDBDBD;
+  border-right: none;
+  border-left: none;
+  position: relative;
+  background: #BDBDBD;
+}
+.page .content .planContainer .plan .planItem .planSmall .planSmallLeft {
+  width: 0;
+  height: 0;
+  border-width: 64px;
+  border-style: solid;
+  border-color: transparent transparent transparent #BDBDBD;
+  position: relative;
+  top: -2px;
+}
+.page .content .planContainer .plan .planItem .planSmall .planSmallLeft:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 56px;
+  border-style: solid;
+  border-color: transparent transparent transparent #F6F7F9;
+  position: absolute;
+  top: -56px;
+  left: -64px;
+}
+.page .content .planContainer .plan .planItem .planSmallContent {
+  border: 2px solid #BDBDBD;
+  border-right: none;
+  border-left: none;
+  width: 200px;
+  height: 128px;
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #ffffff;
+  background: #BDBDBD;
+}
+.page .content .planContainer .plan .planItem .planSmallContent .planSmallDesc {
+  font-size: 12px;
+  color: #ffffff;
+}
+.page .content .planContainer .plan .planItem .planSmallContent .planProgress {
+  padding: 0 15px;
+}
+.page .content .planContainer .planLine .targetItem {
+  position: relative;
+}
+.page .content .planContainer .planLine .targetItem .target1 {
+  background: #BDBDBD;
+  border-radius: 200px;
+  width: 120px;
+  height: 120px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .content .planContainer .planLine .targetItem .timeRoad1 {
+  margin-top: -80px;
+  width: 15px;
+  height: 200px;
+  background: #BDBDBD;
+  transform: rotate(-60deg);
+  margin-left: 190px;
+}
+.page .content .planContainer .planLine .targetItem .timeDesc1 {
+  font-size: 20px;
+  position: absolute;
+  transform: rotate(30deg);
+  left: 170px;
+  top: 100px;
+}
+.page .content .planContainer .planLine .targetItem .target2 {
+  background: #BDBDBD;
+  border-radius: 200px;
+  width: 120px;
+  height: 120px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 275px;
+  margin-top: -80px;
+}
+.page .content .planContainer .planLine .targetItem .timeRoad2 {
+  margin-top: -80px;
+  width: 15px;
+  height: 200px;
+  background: #BDBDBD;
+  transform: rotate(60deg);
+  margin-left: 190px;
+}
+.page .content .planContainer .planLine .targetItem .timeDesc2 {
+  font-size: 20px;
+  position: absolute;
+  transform: rotate(-30deg);
+  left: 150px;
+  top: 100px;
+}

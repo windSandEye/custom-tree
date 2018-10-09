@@ -1,0 +1,49 @@
+.explanatoryBox {
+    width: 290px;
+    padding: 15px;
+    border: 1px solid #ffd3d3;
+    border-radius: 5px;
+    line-height: 1.5;
+    position: relative;
+    .explanLine {
+        width: 120px;
+        height: 1px;
+        background: #ffd3d3;
+        transform: rotate(-30deg);
+        top: 156px;
+        position: absolute;
+        left: -20px;
+    }
+}
+
+.leftDown {
+    .explanLine {
+        top: 0;
+        left: 312px;
+    }
+}
+
+.leftUp {
+    .explanLine {
+        transform: rotate(30deg);
+        left: 220px;
+    }
+}
+
+.rightDown{
+    .explanLine {
+        transform: rotate(30deg);
+        left: -112px;
+        top: 0;
+    }
+}
+
+.top{
+    .explanLine {
+        transform: rotate(90deg);
+        left: 130px;
+        top: 156px;
+        width: 60px;
+
+    } 
+}
